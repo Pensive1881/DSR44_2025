@@ -1,0 +1,10 @@
+United Kingdom	London
+Sweden	Stockholm
+Benin	Porto-Novo
+Comoros	Moroni
+Djibouti	Djibouti
+Togo	Lomé
+Hong Kong	Hong Kong
+Mexico	Mexico City
+Belgium	Brussels
+Luxembourg	Luxembourg City
