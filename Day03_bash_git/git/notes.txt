@@ -2,6 +2,8 @@
 sshkeygen
 
 
+git log --all --online --graph
+
 git commit -a -m "Improved Implementation"
 
 
