@@ -1,0 +1,11 @@
+[project]
+name = "dsr44-2025"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=2.3.3",
+    "pandas>=2.3.2",
+    "seaborn>=0.13.2",
+]
