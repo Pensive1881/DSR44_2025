@@ -1,0 +1,4 @@
+user_id,activity,timestamp
+1,login,2025-06-29 10:00
+2,purchase,2025-06-29 10:05
+3,logout,2025-06-29 10:15
