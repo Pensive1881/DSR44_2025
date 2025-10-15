@@ -1,0 +1,60 @@
+{
+    "name": "FiftyOne Workspace",
+    // The Docker image to use as a base for the dev container
+    // We use the official FiftyOne image from Docker Hub 
+    // https://hub.docker.com/r/voxel51/fiftyone/
+    "image": "voxel51/fiftyone",
+    "features": {
+        // Git needs to be installed inside the container 
+        "ghcr.io/devcontainers/features/git:1": {
+            "version": "latest",
+            "configureGit": true
+        }
+    },
+    "updateContentCommand": "apt-get update && apt-get install -y vim less",
+
+    // Upgrade pip, install requirements and then utilty to manage FiftyOne plugins
+    "postCreateCommand": "python -m pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "GoogleCloudTools.cloudcode",
+                "github.copilot",
+                "github.copilot-chat",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.debugpy",
+                "GitHub.github-vscode-theme",
+                "ms-python.isort",
+                "ms-toolsai.jupyter",
+                "ms-toolsai.vscode-jupyter-cell-tags",
+                "ms-toolsai.jupyter-keymap",
+                "ms-toolsai.jupyter-renderers",
+                "ms-toolsai.vscode-jupyter-slideshow"
+            ],
+            "settings": {
+                "remote.extensionKind": {
+                    // Enable the GitHub Copilot extension in the container
+                    "github.copilot-chat": ["ui"]
+                },
+                "terminal.integrated.defaultProfile.linux": "bash",
+                "python.defaultInterpreterPath": "/opt/.fiftyone-venv/bin/python",
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+                "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+                "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+                "python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+                "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+                "python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+                "python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
+                "python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+                "python.linting.pylintPath": "/usr/local/py-utils/bin/pylint",
+                "python.linting.pylintArgs": [
+                    "--disable=C0111"
+                ]
+            }
+        }
+    }
+}
