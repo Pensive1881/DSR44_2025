@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "simple-mcp-streamable-http-server"
+version = "0.1.0"
+description = "A simple MCP Server with Streamable HTTP"
+readme = "README.md"
+requires-python = ">=3.11"
+classifiers = []
+dependencies = [
+    "fastmcp==2.11.2",
+    "mcp==1.12.4",
+    "annotated-types==0.7.0",
+]

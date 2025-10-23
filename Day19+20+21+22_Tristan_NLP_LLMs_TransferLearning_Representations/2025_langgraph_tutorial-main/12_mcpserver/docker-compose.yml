@@ -1,0 +1,19 @@
+services:
+  mcp-server:
+    build: .
+    container_name: mcp-server
+    ports:
+      - "8666:8666"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - MCP_HOST=0.0.0.0
+      - MCP_PORT=8666
+    volumes:
+      - ./:/app
+    restart: unless-stopped
+    networks:
+      - mcp-network
+
+networks:
+  mcp-network:
+    driver: bridge
