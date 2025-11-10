@@ -1,0 +1,35 @@
+services:
+  # Ollama service for LLM
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11436:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+  # RAGSST App
+  ragsst-app:
+      # Use pre-built image from GitHub Container Registry (for workshop participants)
+      image: ghcr.io/aihpi/ragsst:latest
+      # Uncomment the lines below to build locally instead of using pre-built image
+      # build:
+      #   context: ./
+      #   dockerfile: Dockerfile
+      container_name: ragsst-app
+      ports:
+        - "7860:7860"
+      volumes:
+        - ./data:/app/data
+        - ./vector_db:/app/vector_db
+        - ./exports:/app/exports
+        - ./log:/app/log
+      environment:
+        - OLLAMA_BASE_URL=http://ollama:11434/v1
+      depends_on:
+        - ollama
+      restart: unless-stopped
+      command: .venv/bin/python app.py
+
+volumes:
+  ollama_data:
